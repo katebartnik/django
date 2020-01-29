@@ -1,3 +1,9 @@
+#funkcje widokow
+
+from django.shortcuts import render
+
+# Create your views here.
+
 from django.http import HttpResponse
 
 # /hello
@@ -35,3 +41,6 @@ def operacje(request, op, a, b):
 
 
     return HttpResponse(wynik)
+
+def index(request):
+    return HttpResponse("Hello World! That's polls index")
