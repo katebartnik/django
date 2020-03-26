@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Szczegoly{% endblock title%}
+
+{% block content %}
+<h1>{{ question.question_text }}</h1>
+<h4>{{ question.pub_date }}</h4>
+
+<form>
+
+    <input type="radio" name="choice" id="choice" value="">
+    <label for="choice">Text</label>
+
+</form>
+<a href="{% url 'polls:list' %}"> Lista</a>
+
+{% endblock %}
