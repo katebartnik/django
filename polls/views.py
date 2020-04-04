@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.shortcuts import render
 
 from django.http import HttpResponse
 
@@ -48,26 +49,20 @@ def index(request):
     return HttpResponse("Hello world! That's polls index")
 
 def questions_list(request):
-    qs = Question.objects.all()
-    text = ""
-    for q in qs:
-        text += str(q)
-        text += "<br>"
+    questionList = Question.objects.all()
+    return render(
+        request,
+        "question/list.html",
+        {"questions": questionList}
+    )
 
-    return HttpResponse(text)
+def question_details(request, id):
+    question = Question.objects.get(pk=id)
 
-# zad domowe
-# widok szczegółow
+    return render(
+        request,
+        "question/details.html",
+        {"question": question}
+    )
 
-# questions/1
 
-# questions/2
-def question_details(): pass
-# itd
-
-# https://docs.djangoproject.com/en/3.0/intro/tutorial01/
-# https://docs.djangoproject.com/en/3.0/intro/tutorial02/
-# https://docs.djangoproject.com/en/3.0/intro/tutorial03/
-
-#  Na środę - na egzamin:D -
-# https://pythonprinciples.com/challenges/
